@@ -62,7 +62,7 @@
 int main()
 {
 	int a, i;
-	while(scanf("%d", &a)!=EOF)
+	while(scanf_s("%d", &a)!=EOF)
 	for (i = 0; i < a; i++)
 	{
 		printf("*");
