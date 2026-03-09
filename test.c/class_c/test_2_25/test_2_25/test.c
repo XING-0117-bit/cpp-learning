@@ -1,73 +1,73 @@
 #define _CRT_SECURE_NO_WARNINGS 
-//#include<stdio.h>
-//#include<time.h>
-//void menu()
-//{
-//	printf(" *******************\n");
-//	printf(" *****请选择.*******\n");
-//	printf(" *****1.开始游戏****\n");
-//	printf(" *****0.退出游戏****\n");
-//}
-//void game()
-//{
-//	int t = 0;
-//	t = rand() % 100 + 1;
-//	int r = 0;
-//	while(1)
-//	{
-//	printf("请输入数字\n");
-//	scanf("%d", &r);
-//	
-//	
-//		if (r == t)
-//		{
-//			printf("恭喜你，猜对了\n");
-//			break;
-//		}
-//		else if (r > t)
-//		{
-//			printf("猜大了\n");
-//		}
-//		else
-//		{
-//			printf("猜小了\n");
-//		}
-//	}
-//
-//}
-//int main()
-//{	
-//	srand((unsigned int)time(NULL));
-//	menu();
-//	int input = 0;
-//	scanf("%d", &input);
-//	switch (input)
-//	{
-//		do
-//		{
-//
-//	case 0:
-//	{
-//		printf("游戏结束");
-//		break;
-//	}
-//	case 1:
-//	{
-//		game();
-//		break;
-//	}
-//	default:
-//	{
-//		printf("输入错误\n");
-//		break;
-//	}
-//
-//		} while (input);
-//	}
-//		
-//	
-//	return 0;
-//}
+#include<stdio.h>
+#include<time.h>
+void menu()
+{
+	printf(" *******************\n");
+	printf(" *****请选择.*******\n");
+	printf(" *****1.开始游戏****\n");
+	printf(" *****0.退出游戏****\n");
+}
+void game()
+{
+	int t = 0;
+	t = rand() % 100 + 1;
+	int r = 0;
+	while(1)
+	{
+	printf("请输入数字\n");
+	scanf("%d", &r);
+	
+	
+		if (r == t)
+		{
+			printf("恭喜你，猜对了\n");
+			break;
+		}
+		else if (r > t)
+		{
+			printf("猜大了\n");
+		}
+		else
+		{
+			printf("猜小了\n");
+		}
+	}
+
+}
+int main()
+{	
+	srand((unsigned int)time(NULL));
+	menu();
+	int input = 0;
+	scanf("%d", &input);
+	switch (input)
+	{
+		/*do
+		{
+
+	case 0:
+	{
+		printf("游戏结束");
+		break;
+	}
+	case 1:
+	{
+		game();
+		break;
+	}
+	default:
+	{
+		printf("输入错误\n");
+		break;
+	}
+
+		} while (input);
+	}
+		
+	
+	return 0;
+}*/
 //#include<stdio.h>
 //int main()
 //{
