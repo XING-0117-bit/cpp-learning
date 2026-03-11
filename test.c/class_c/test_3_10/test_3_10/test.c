@@ -102,22 +102,33 @@
 //	return 0;
 //
 //}
-#include<stdio.h>
-int main()
-{
-	int arr1[3] = { 1,2,3 };
-	int arr2[3] = { 4,5,6 };
-	int i, j;
-	int temp = 0;
-	for (i = 0; i < 3; i++)
-	{
-		temp = arr1[i];
-		arr1[i] = arr2[i];
-		printf("%d", arr1[i]);
-		arr2[i] = temp;
-		printf("%d", arr2[i]);
-
-	}
-	
-	return 0;
-}
+//#include<stdio.h>
+//int main()
+//{
+//	int arr1[3] = { 1,2,3 };
+//	int arr2[3] = { 4,5,6 };
+//	int i;
+//	int temp = 0;
+//	for (i = 0; i < 3; i++)
+//	{
+//		temp = arr1[i];
+//		arr1[i] = arr2[i];
+//		arr2[i] = temp;
+//	}
+//	
+//	for (int i = 0; i < 3;i++)
+//	{
+//		
+//		printf("%d", arr1[i]);
+//	}
+//	printf("\n");
+//	for (int i = 0; i < 3; i++)
+//	{
+//		printf("%d", arr2[i]);
+//	}
+//
+//	
+//
+//	
+//	return 0;
+//}
