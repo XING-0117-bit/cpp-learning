@@ -100,19 +100,29 @@ int main()
 	}
 	int i = 0;
 	int j = 0;
-	while (i == j && arr1[i] > arr2[j])
+	while (i<n &&j<m )
 	{
-		printf("%d", arr1[j]);
+		if ( arr1[i] > arr2[j])
+		{
+			printf("%d ", arr2[j]);
+				j++;
+		}
+		else 
+		{
+			printf("%d ", arr1[i]);
+			i++;
+		}
+
 	}
-	while (arr1[i]>arr2[j])
+	while (i<n)
 	{
-		printf("%d", arr2[j]);
-		j++;
-	}
-	while (arr1[i] < arr2[j])
-	{
-		printf("%d", arr2[i]);
+		printf("%d ", arr1[i]);
 		i++;
+	}
+	while (j<m)
+	{
+		printf("%d ", arr2[j]);
+		j++;
 	}
 	return 0;
 }
