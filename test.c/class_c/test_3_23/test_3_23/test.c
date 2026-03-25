@@ -146,52 +146,53 @@
 //	} while (input);
 //	return 0;
 //}
-#include<stdio.h>
-void init(int arr[], int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = 0;
-	}
-}
-void print(int arr[], int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		printf("%d ", arr[i]);
-	}
-	printf("\n");
-}
-void reverse(int arr[],int n)
-{
-	for (int i = 0; i < n / 2; i++) {
-		int temp = arr[i];
-		arr[i] = arr[n - 1 - i];
-		arr[n - 1 - i] = temp;
-	}
-}
-int main()
-{
-	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	printf("原始数组: ");
-	print(arr, sz);       // 注意：这里只打印前9个元素（因为sz少1）
-
-	init(arr, sz);
-	printf("初始化后: ");
-	print(arr, sz);
-
-	// 重新赋值（只给前9个元素赋值）
-	for (int i = 0; i < sz; i++) {
-		arr[i] = i + 1;
-	}
-	printf("重新赋值: ");
-	print(arr, sz);
-	
-
-	reverse(arr, sz);
-	printf("逆置后: ");
-	print(arr, sz);
-
-	return 0;
-}
+//#include<stdio.h>
+//void init(int arr[], int n)
+//{
+//	for (int i = 0; i < n; i++)
+//	{
+//		arr[i] = 0;
+//	}
+//}
+//void print(int arr[], int n)
+//{
+//	for (int i = 0; i < n; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//}
+//void reverse(int arr[],int n)
+//{
+//	for (int i = 0; i < n / 2; i++) {
+//		int temp = arr[i];
+//		arr[i] = arr[n - 1 - i];
+//		arr[n - 1 - i] = temp;
+//	}
+//}
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	printf("原始数组: ");
+//	print(arr, sz);       // 注意：这里只打印前9个元素（因为sz少1）
+//
+//	init(arr, sz);
+//	printf("初始化后: ");
+//	print(arr, sz);
+//
+//	// 重新赋值（只给前9个元素赋值）
+// 
+//	for (int i = 0; i < sz; i++) {
+//		arr[i] = i + 1;
+//	}
+//	printf("重新赋值: ");
+//	print(arr, sz);
+//	
+//
+//	reverse(arr, sz);
+//	printf("逆置后: ");
+//	print(arr, sz);
+//
+//	return 0;
+//}
