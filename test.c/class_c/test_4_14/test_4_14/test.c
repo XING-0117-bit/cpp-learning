@@ -116,23 +116,35 @@
 //	printf("%d", ret);
 //	return 0;
 //}
+//#include<stdio.h>
+//int DigitSum(int n)
+//{
+//	int a = 0;
+//
+//	if (n <= 9)
+//		return n;
+//	else
+//		return DigitSum(n / 10) + n % 10;
+//	
+//}
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int ret=DigitSum(n);
+//	printf("%d", ret);
+//	return 0;
+//
+//}
 #include<stdio.h>
-int DigitSum(int n)
-{
-	
-		if (n > 9)
-			 int a = n % 10;
-		int sum += a;
-			DigitSum(n / 10);
-	return a;
-	
-}
 int main()
 {
-	int n = 0;
-	scanf("%d", &n);
-	int ret=DigitSum(n);
-	printf("%d", ret);
+	int m = 0;
+	scanf("%d", &m);
+	while (m)
+	{
+		printf("%d ", m % 10);
+		m /= 10;
+	}
 	return 0;
-
 }

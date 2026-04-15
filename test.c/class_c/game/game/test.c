@@ -17,10 +17,10 @@ void game()
 	Initboard(mine, ROWS, COLS,'0');
 
 	Displayboard(show, ROW, COL);
-	Displayboard(mine, ROW, COL);
+	//Displayboard(mine, ROW, COL);
 
 	SetMine(mine, ROW, COL);
-	Displayboard(mine, ROW, COL);
+	//Displayboard(mine, ROW, COL);
 
 	FindMine(mine,show, ROW, COL);
 }
