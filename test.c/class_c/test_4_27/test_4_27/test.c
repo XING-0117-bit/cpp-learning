@@ -11,19 +11,38 @@
 //	}
 //	return 0;
 //}
-int my_strlen(char *s)
+//int my_strlen(char *s)
+//{
+//	char* p = s;
+//	while (*p != 0)
+//	{
+//		p++;
+//	}
+//	return p - s;
+//}
+//#include<stdio.h>
+//int main()
+//{
+//	int sz = my_strlen("abc");
+//	printf("%d", sz);
+//	return 0;
+//}
+#include<stdio.h>
+#include<string.h>
+size_t my_strlen(char* p)
 {
-	char* p = s;
-	while (*p != 0)
+	char* pa = p;
+	while (*p)
 	{
 		p++;
 	}
-	return p - s;
+	return p - pa;
 }
-#include<stdio.h>
 int main()
 {
-	int sz = my_strlen("abc");
-	printf("%d", sz);
+	char ch[] = "abc";
+	size_t sz = my_strlen(ch);
+	printf("%zd", sz);
 	return 0;
+
 }

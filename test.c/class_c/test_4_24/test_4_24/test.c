@@ -53,3 +53,22 @@
 //	return 0;
 //
 //}
+#include<stdio.h>
+#include<string.h>
+size_t my_strlen(char* p)
+{
+	char* pa = p;
+	while (*p)
+	{
+		p++;
+	}
+	return p - pa;
+}
+int main()
+{
+	char ch[] = "abc";
+	size_t sz = my_strlen(ch);
+	printf("%zd", sz);
+	return 0;
+
+}
