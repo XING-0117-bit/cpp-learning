@@ -39,15 +39,41 @@
 //	Print(arr,sz);
 //	return 0;
 //}
+//#include<stdio.h>
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,8,9 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int* p = &arr[0];
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d", *(p + i));
+//		return 0;
+//	}
+//}
 #include<stdio.h>
+#include<string.h>
+void left_round(char* ch, int k)
+{
+	size_t len = strlen(ch);
+	int time = k % len;
+	for (int i = 0; i < time; i++)
+	{
+		char tmp = ch[0];
+		int j = 0;
+		for (j = 0; j < len - 1; j++)
+		{
+			ch[j] = ch[j + 1];
+		}
+		ch[j] = tmp;
+	}
+}
 int main()
 {
-	int arr[] = { 1,2,3,4,5,6,8,9 };
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	int* p = &arr[0];
-	for (int i = 0; i < sz; i++)
-	{
-		printf("%d", *(p + i));
-		return 0;
-	}
+	char ch[] = "abcdef";
+	int k = 0;
+	scanf("%d", &k);
+	left_round(ch, k);
+	printf("%s\n", ch);
+	return 0;
 }
