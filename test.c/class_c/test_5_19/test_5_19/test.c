@@ -51,9 +51,13 @@ struct Stu
 	char name[20];
 	int age;
 };
+int cmp_by_name(const void* e1, const void* e2)
+{
+	return strcmp(((struct Stu*)e1)->name ,((struct Stu*)e2)->name);
+}
 void Swape(char* buf1, char* buf2, int width)
 {
-	for(int i = 0; i < width; i++)
+	for (int i = 0; i < width; i++)
 	{
 		char tmp = *buf1;
 		*buf1 = *buf2;
@@ -61,10 +65,6 @@ void Swape(char* buf1, char* buf2, int width)
 		*buf1++;
 		*buf2++;
 	}
-}
-int cmp_by_name(const void* e1, const void* e2)
-{
-	return strcmp(((struct Stu*)e1)->name ,((struct Stu*)e2)->name);
 }
 void bubble(void* base, int sz, int width, int(*cmp)(const void* e1, const void* e2))
 {
