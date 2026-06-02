@@ -29,22 +29,22 @@
 //}
 //转移表
 //#include<stdio.h>
-int Add(int x, int y)
-{
-	return x + y;
-}
-int Sub(int x, int y)
-{
-	return x - y;
-}
-int Mul(int x, int y)
-{
-	return x * y;
-}
-int Div(int x, int y)
-{
-	return x / y;
-}
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int Mul(int x, int y)
+//{
+//	return x * y;
+//}
+//int Div(int x, int y)
+//{
+//	return x / y;
+//}
 //int main()
 //{
 //	int input = 0;
@@ -122,52 +122,52 @@ int Div(int x, int y)
 //	} while (input);
 //	return 0;
 //}
-#include<stdio.h>
-void calc(int(*pa)(int , int ))
-{
-	int x = 0;
-	int y = 0;
-	int r = 0;
-	printf("请输入数值\n");
-	scanf("%d %d", &x, &y);
-	r = pa(x, y);
-	printf("%d", r);
-}
-int main()
-{
-	int input = 0;
-	do
-	{
-		scanf("%d", &input);
-		switch (input)
-		{
-		case 1:
-		{
-			calc(Add);
-			break;
-		}
-		case 2:
-		{
-			calc(Sub);
-			break;
-		}
-		case 3:
-		{
-			calc(Mul);
-				break;
-		}
-		case 4:
-		{
-			calc(Div);
-				break;
-		}
-		default:
-			printf("输入错误，请重新输入\n");
-			break;
-		}
-	} while (input);
-	return 0;
-}
+//#include<stdio.h>
+//void calc(int(*pa)(int , int ))
+//{
+//	int x = 0;
+//	int y = 0;
+//	int r = 0;
+//	printf("请输入数值\n");
+//	scanf("%d %d", &x, &y);
+//	r = pa(x, y);
+//	printf("%d", r);
+//}
+//int main()
+//{
+//	int input = 0;
+//	do
+//	{
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case 1:
+//		{
+//			calc(Add);
+//			break;
+//		}
+//		case 2:
+//		{
+//			calc(Sub);
+//			break;
+//		}
+//		case 3:
+//		{
+//			calc(Mul);
+//				break;
+//		}
+//		case 4:
+//		{
+//			calc(Div);
+//				break;
+//		}
+//		default:
+//			printf("输入错误，请重新输入\n");
+//			break;
+//		}
+//	} while (input);
+//	return 0;
+//}
 //#include<stdio.h>
 //void bubble_sort(int arr[], int sz)
 //{
@@ -201,31 +201,31 @@ int main()
 //	Print(arr, sz);
 //	return 0;
 //}
-//#include<stdio.h>
-//void Print(int arr[], int sz)
-//{
-//	for (int i = 0;i < sz;i++)
-//	{
-//		printf("%d", arr[i]);
-//	}
-//}
-//int cmp_int(const void* p1, const void* p2)
-//{
-//	return *(int*)p1 - *(int*)p2;
-//}
-//
-//void test()
-//{
-//	int arr[] = { 2,5,3,6,7,1,8,4,9 };
-//	int sz = sizeof(arr) / sizeof(arr[0]);
-//	 qsort(arr, sz, sizeof(arr[0]), cmp_int);
-//	 Print(arr, sz);
-//}
-//int main()
-//{
-//	test();
-//	return 0;
-//}
+#include<stdio.h>
+void Print(int arr[], int sz)
+{
+	for (int i = 0;i < sz;i++)
+	{
+		printf("%d", arr[i]);
+	}
+}
+int cmp_int(const void* p1, const void* p2)
+{
+	return *(int*)p1 - *(int*)p2;
+}
+
+void test()
+{
+	int arr[] = { 2,5,3,6,7,1,8,4,9 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	 qsort(arr, sz, sizeof(arr[0]), cmp_int);
+	 Print(arr, sz);
+}
+int main()
+{
+	test();
+	return 0;
+}
 //#include<stdio.h>
 //void cmp_int(const void* p1, const void* p2)
 //{
