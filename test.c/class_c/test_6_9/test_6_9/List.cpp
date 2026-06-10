@@ -25,6 +25,7 @@ void Print(Lnode* L)
 	{
 		printf("NULL");
 	}
+	printf("\n");
 }
 int ListSize(Lnode* L)
 {
@@ -72,7 +73,7 @@ void ListInsert(Lnode* L, int i, LDatatype x)
 {
 	assert(L);
 	assert(i >= 0);
-	Lnode* i_1node = L->next;
+	Lnode* i_1node = L;
 	int j = -1;
 	while (j < i - 1 && i_1node)
 	{
@@ -83,4 +84,39 @@ void ListInsert(Lnode* L, int i, LDatatype x)
 	Lnode* Newnode = BuyListnode(x);
     Newnode->next = i_1node->next;
 	i_1node->next = Newnode;
+}
+//void ListInsert(Lnode* L, int i, LDatatype x)
+//{
+//	assert(L);
+//	assert(i >= 0);
+//	Lnode* i_1node = L->next;
+//	int j = -1;
+//	while (j < i - 1 && i_1node)
+//	{
+//		i_1node = i_1node->next;
+//		j++;
+//	}
+//	assert(i_1node);
+//	Lnode* Newnode = BuyListnode(x);
+//	Newnode->next=i_1node->next;
+//	i_1node->next = Newnode;
+//	
+//}
+LDatatype Delete(Lnode* L, int i)
+{
+	assert(L);
+	assert(i >= 0);
+	Lnode* i_1node = L;
+	int j = -1;
+	while (j < i - 1 && i_1node)
+	{
+		i_1node = i_1node->next;
+		j++;
+	}
+	assert(i_1node);
+	Lnode* Newnode = i_1node->next;
+	i_1node->next = Newnode->next;
+	return Newnode->data;
+	free(Newnode);
+	Newnode = NULL;
 }

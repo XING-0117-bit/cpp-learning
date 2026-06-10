@@ -15,3 +15,4 @@ int ListSize(Lnode* L);
 Lnode* ListLocateElem(Lnode* L, LDatatype x);
 Lnode* ListGetElem(Lnode* L, int i,int n);
 void ListInsert(Lnode* L, int i, LDatatype k);
+LDatatype Delete(Lnode* L, int i);

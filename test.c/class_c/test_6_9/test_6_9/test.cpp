@@ -18,15 +18,20 @@ void Test()
 {
 	Lnode* LT = NULL;
 	LT=CreatList();
-	Print(LT);
+	//Print(LT);
 	int n = ListSize(LT);
 	//printf("%d\n", n);
 	Lnode*r=ListLocateElem(LT, 3);//找到链表中和x一样的结点的地址
 	//printf("%p", r);
 	Lnode*w=ListGetElem(LT, 2,n);
 	//printf("%d", w->data);
-	ListInsert(LT, 2, 3);
+	//ListInsert(LT, 2, 3);
+	ListInsert(LT, 1, 4);
+	ListInsert(LT, 0, 1);
 	Print(LT);
+	LDatatype l= Delete(LT, 2);
+	 Print(LT);
+	 printf("%d", l);
 
 }
 int main()
