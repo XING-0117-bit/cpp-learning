@@ -12,3 +12,4 @@ typedef struct SqListence
 void SqListInit(SqList* ps);
 void SqListDestory(SqList* ps);
 void SqListInsert(SqList* ps, int i, SqDatatype x);
+void SqListPrint(SqList* ps);

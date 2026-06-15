@@ -22,3 +22,12 @@ void SqListDestory(SqList* ps)
 		ps->arr = NULL;
 	}
 }
+void Print(SqList* ps)
+{
+	assert(ps);
+	for (int i = 0; i < ps->size; i++)
+	{
+		printf("%d", ps->arr[i]);
+	}
+	printf("\n");
+}

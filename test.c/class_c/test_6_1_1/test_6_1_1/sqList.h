@@ -9,6 +9,10 @@ typedef struct SeqenceList {
 	int capacity;
 }SqList;
 void SqListInit(SqList* ps);
-//void SqListInit(SqList &ps);
-void SqListDestory(SqList* ps);
- SqDatetype GetElem(SqList*ps, int i);
+void SqListDestroy(SqList* ps);
+SqDatetype GetElem(SqList* ps, int i);
+int LocateElem(SqList* ps, SqDatetype x);
+void SqListInsert(SqList* ps, int i, SqDatetype x);
+void SqListDelete(SqList* ps, int i);
+void SqListUpdate(SqList* ps, int i, SqDatetype x);
+void SqListPrint(SqList* ps);

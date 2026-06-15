@@ -11,4 +11,5 @@ typedef struct SqListene
 }SqList;
 void SqListInit(SqList* ps);
 void SqListDestory(SqList* ps);
+void Print(SqList*ps);
 

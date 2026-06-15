@@ -7,6 +7,7 @@ void SqListInit(SqList* ps)
 	if (ps->arr == NULL)
 	{
 		printf("ÄÚ´æÉêÇëÊ§°Ü\n");
+		return;
 	}
 	ps->size = 0;
 	ps->capacity = 4;
@@ -50,4 +51,13 @@ void SqListInsert(SqList* ps, int i, SqDatatype x) {
 	}
 	ps->arr[i] = x;
 	ps->size++;
+}
+void SqListPrint(SqList* ps)
+{
+	assert(ps);
+	for (int i = 0; i < ps->size; i++)
+	{
+		printf("%d", ps->arr[i]);
+	}
+	printf("\n"); 
 }
