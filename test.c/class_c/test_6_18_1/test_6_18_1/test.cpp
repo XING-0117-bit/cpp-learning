@@ -71,7 +71,7 @@ struct ListNode* getIntersectionNode(struct ListNode* headA, struct ListNode* he
 	while (headA)
 	{
 		headA = headA->next;
-		i ++;
+		i++;
 	}
 	while (headB)
 	{
@@ -98,10 +98,20 @@ struct ListNode* getIntersectionNode(struct ListNode* headA, struct ListNode* he
 			headB = headB->next;
 		}
 	}
-	while(headA==headB)
-	{ 
-
+	while (headA &&headB)
+	{
+		if (headA == headB)
+		{
+			break;
+		}
+		else
+		{
+			headA = headA->next;
+			headB = headB->next;
+		}
 	}
+	return headA;
+}
 
 
 
