@@ -1,0 +1,12 @@
+*.exe
+*.sln
+*.vcxproj
+*.filters
+*.user
+*.suo
+*.db
+*.ipch
+Debug/
+.vs/
+Release/
+x64/
