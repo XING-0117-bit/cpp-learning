@@ -104,7 +104,7 @@ int main()
 	cout << a << endl;
 	cout << a << endl;
 	cout << a << endl;
-	Add(1, 5);
+	Add(1, 5);//在这里只是换了参数，并没有改动a的值，我们可以发现a的值会自动变化
 	cout << a << endl;
 	return 0;
 }
