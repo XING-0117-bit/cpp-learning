@@ -68,31 +68,68 @@
 //_year = year;
 //this->_month = month;
 //this->_day = day;
+//#include<iostream>
+//using namespace std;
+//class Date
+//{
+//public:    //在这里加入this指针就会报错
+//	//void Init(Date* const this, int year, int month, int day)
+//	void Init(int year,int month,int day)
+//	{
+//		_year = year;
+//		this->_month = month;   //体现在函数体中是可以的
+//		this->_day = day;
+//	}
+//	void Print()
+//	{
+//		cout << _year << "/" << _month << "/" << _day << endl;
+//	}
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+//};
+//int main()
+//{
+//	Date d1;
+//	d1.Init(2026, 9, 11);
+//	d1.Print();
+//	return 0;
+//}
 #include<iostream>
 using namespace std;
-class Date
+class A
 {
-public:    //在这里加入this指针就会报错
-	//void Init(Date* const this, int year, int month, int day)
-	void Init(int year,int month,int day)
-	{
-		_year = year;
-		this->_month = month;   //体现在函数体中是可以的
-		this->_day = day;
-	}
+public:
 	void Print()
 	{
-		cout << _year << "/" << _month << "/" << _day << endl;
+		cout << "A::Print()" << endl;
 	}
 private:
-	int _year;
-	int _month;
-	int _day;
+	int _a;
 };
 int main()
 {
-	Date d1;
-	d1.Init(2026, 9, 11);
-	d1.Print();
+	A* p = nullptr;
+	p->Print();
+	return 0;
+}
+#include<iostream>
+using namespace std;
+class A
+{
+public:
+	void Print()
+	{
+		cout << "A::Print()" << endl;
+		cout << _a << endl;
+	}
+private:
+	int _a;
+};
+int main()
+{
+	A* p = nullptr;
+	p->Print();
 	return 0;
 }
