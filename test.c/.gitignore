@@ -1,4 +1,5 @@
 # Build directories
+.vs/
 x64/
 Debug/
 Release/
