@@ -1,3 +1,4 @@
+//Date.cpp
 #define _CRT_SECURE_NO_WARNINGS
 #include"Date.h"
 Date::Date(int year,int month,int day)
@@ -38,18 +39,18 @@ bool Date::operator>=(const Date& d) const
 {
 	return (*this > d) || (*this == d);
 }
-bool Date::operator<=(const Date& d)
+bool Date::operator<=(const Date& d) const
 {
 	return !(*this > d);
 }
-bool Date::operator<(const Date& d)
+bool Date::operator<(const Date& d) const
 {
 	return !(*this >=  d);
 }
 int GetMonthDay(int year, int month)
 {
 	int MonthArr[] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
-	if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+	if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)))
 		return 29;
 	return MonthArr[month];
 }
@@ -71,6 +72,58 @@ Date& Date::operator+=(int day)
 Date Date::operator+(int day)
 {
 	Date tmp = *this;
-	*this += day;
+	tmp += day;
+	return tmp;
+}
+Date Date::operator-(int day)
+{
+	Date tmp(*this);
+	tmp._day -= day;
+	while (tmp._day < 1)
+	{
+		--tmp._month;
+		if (tmp._month == 0)
+		{
+			--tmp._year;
+			tmp._month = 12;
+		}
+		tmp._day += GetMonthDay(tmp._year, tmp._month);
+	}
+	return tmp;
+}
+Date& Date::operator-=(int day)
+{
+	*this = *this - day;
 	return *this;
+}
+Date Date::operator++(int day)
+{
+	Date tmp(*this);
+	*this += 1;
+	return tmp;
+}
+Date Date::operator++()
+{
+	*this += 1;
+	return *this;
+}
+int Date::operator-(const Date& d) const
+{
+	Date max = *this;
+	Date min = d;
+	int flag = 1;
+	if ( *this < d)
+	{
+		 max = d;
+		 min = *this;
+		 flag = -1;
+	}
+	int n = 0;
+	while (max != min)
+	{
+		++min;
+		++n;
+	}
+	return flag * n;
+
 }

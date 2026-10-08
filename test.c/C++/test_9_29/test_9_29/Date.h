@@ -1,3 +1,5 @@
+//Date.h
+#pragma once
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 using namespace std;
@@ -12,11 +14,19 @@ public:
 	bool operator==(const Date& d) const;
 	bool operator>(const Date& d) const;
 	bool operator>=(const Date& d) const;
-	bool operator<=(const Date& d);
-	bool operator<(const Date& d);
+	bool operator<=(const Date& d) const;
+	bool operator<(const Date& d) const;
 
 	Date& operator+=(int day);
 	Date operator+(int day);
+
+	Date& operator-=(int day);
+	Date operator-(int day);
+
+	int  operator-(const Date& d)const;
+
+	Date operator++();
+	Date operator++(int day);
 private:
 	int _year;
 	int _month;
