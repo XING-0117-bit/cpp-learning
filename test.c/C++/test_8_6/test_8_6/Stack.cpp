@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include"Stack.h"
 // 缺省参数不能声明和定义同时给
 void STInit(ST* ps, int n=20)

@@ -1,6 +1,7 @@
-//Date.cpp
+﻿//Date.cpp
 #define _CRT_SECURE_NO_WARNINGS
 #include"Date.h"
+
 Date::Date(int year,int month,int day)
 {
 	_year = year;
@@ -12,6 +13,11 @@ bool Date::operator==(const Date& d) const
 	return _year == d._year &&
 		_month == d._month &&
 		_day == d._day;
+}
+bool Date::operator!=(const Date& d) const
+{
+	// 修改：新增，等价于 !(*this == d)
+	return !(*this == d);
 }
 bool Date::operator>(const Date& d) const
 {
@@ -53,6 +59,20 @@ int GetMonthDay(int year, int month)
 	if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)))
 		return 29;
 	return MonthArr[month];
+}
+bool Date::DateCheck()
+{
+	// 修改：月份上限判断原来误写成 _year > 12，且漏了 _month < 1
+	if (_year < 1 || _month < 1 || _month > 12 ||
+		_day<1 || _day>GetMonthDay(_year, _month))
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+
 }
 Date& Date::operator+=(int day)
 {
@@ -126,4 +146,26 @@ int Date::operator-(const Date& d) const
 	}
 	return flag * n;
 
+}
+// 新增：重载输出运算符 <<，用友元方式访问 _year/_month/_day
+ostream& operator<<(ostream& out, const Date& d)
+{
+	out << d._year << "年" << d._month << "月" << d._day << "日" << endl;
+	return out;
+}
+// 新增：重载输入运算符 >>
+istream& operator>>(istream& in, Date& d)
+{
+	// 修改：非法日期时循环重新输入，直到合法为止
+	while (true)
+	{
+		cout << "请依次输入年月日" << endl;
+		in >> d._year >> d._month >> d._day;
+		if (d.DateCheck())
+		{
+			break;
+		}
+		cout << "日期违法，请重新输入" << endl;
+	}
+	return in;
 }

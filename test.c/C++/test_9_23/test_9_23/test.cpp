@@ -50,6 +50,7 @@ int main()
 	Date d1(2026, 1, 17);
 	Date d2(2026, 3, 25);
 	cout<<d1.operator==(d2)<<endl;
+	cout << (d1 == d2) << endl;
 	return 0;
 }
 
