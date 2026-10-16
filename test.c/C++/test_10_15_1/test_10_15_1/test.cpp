@@ -11,7 +11,8 @@ using namespace std;
 class A
 {
 public:
-	A(int a1)
+	//在构造函数前加上explicit就不会再进行隐式类型转换
+	explicit A(int a1)
 		:a1(a1)
 	{
 		cout << "A(int a1)" << endl;
@@ -44,12 +45,15 @@ int main()
 	//A aa1(1);    //构造
 	//A aa2 = 1;   //构造+拷贝构造->被优化为构造
 	//const A& aa3 = 1;
-	//Array arr;
+	Array arr;
 	// A aar(4);
 	//arr.PushBack(aa3);
 	//                      //如果用类型转换的话只用写一次就可以，
 	//					  // 但是如果是按照正常的写法就需要初始化然后再调用函数
 	//arr.PushBack(4);
-	A aa5{ 5,5 };
+	A aa5{ 5,5 };       //这是两个整型转换的写法
+	const A& aa6{ 6,6 };//当然变成类的引用吗类型也是一样的
+	arr.PushBack(aa5);
+	arr.PushBack({6,6});
 	return 0;
 }
