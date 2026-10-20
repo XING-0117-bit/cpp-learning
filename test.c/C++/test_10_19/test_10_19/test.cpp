@@ -61,7 +61,7 @@ using namespace std;
 class A
 {
 public:
-	class B
+	class B                  //B默认就是A的友元函数
 	{
 	public:
 		void func(const A&aa)
@@ -86,3 +86,55 @@ int main()
 	b.func(aa);
 	return 0;
 }
+//#include<iostream>
+//using namespace std;
+//class A
+//{
+//public:
+//	class B                  //B默认就是A的友元函数
+//	{
+//	public:
+//		void func(const A&aa)
+//		{
+//			cout << _b1 << endl;
+//			cout << aa._a1 << endl;
+//		}
+//	private:
+//		int _b1=2;
+//		int _b2;
+//	};
+//private:
+//	int _a1=1;
+//	int _a2;
+//
+//
+//};
+//int main()
+//{
+//	A::B b;
+//	A aa;
+//	b.func(aa);
+//	return 0;
+//}
+class Solution
+{
+	class Sum
+	{
+	public:
+		Sum()
+		{
+			_ret += _i;
+			_i++;
+		}
+	};
+	static int _i;
+	static int _ret;
+public:
+	int Sum_Solution(int n)
+	{
+		Sum arr[n];
+		return _ret;
+	}
+};
+int Solution::_i = 1;
+int Solution::_ret = 1;
