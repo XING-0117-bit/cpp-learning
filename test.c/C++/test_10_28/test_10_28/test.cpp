@@ -1,45 +1,98 @@
 #define _CRT_SECURE_NO_WARNINGS
+//#include<iostream>
+//using namespace std;
+//
+//	template <typename T>
+//	T Add(const T& x, const T& y)
+//	{
+//		return x + y;
+//	}
+//
+//
+//int main()
+//{
+//	int x = 1;
+//	int y = 2;
+//	double z = 2.3;
+//	double b = 2.5;
+//	cout << Add(x, y) << endl; //ÕâÖÖÊÇÀàĞÍÏàÍ¬µÄ±äÁ¿µ÷ÓÃAddÕâ¸öº¯Êı£¬ÊÇºÏÀíµÄ
+//
+//	cout << Add((double)x, z) << endl;
+//	cout << Add(x, (int)z) << endl;     //ÕâÁ½ÖÖ·½Ê½¶¼ÊÇ¿ÉÒÔµÄ
+//	return 0;
+//}
+//#include<iostream>
+//using namespace std;
+//
+//template <typename T>
+//T Add(const T& x, const T& y)
+//{
+//	return x + y;
+//}
+//
+//
+//int main()
+//{
+//	int x = 1;
+//	int y = 2;
+//	double z = 2.3;
+//	double b = 2.5;
+//	cout << Add<int>(x, z) << endl; //ÕâÖÖ·½Ê½¾ÍÊÇÏÔÊ¾ÀàĞÍ×ª»»
+//	return 0;
+//}
 #include<iostream>
 using namespace std;
-//void Swape(int& x, int& y)
+//int Add( int x,int y)
 //{
-//	int tmp = x;
-//	x = y;
-//	y = tmp;
+//	cout << "Add( int x,int y)" << endl;
+//	return x + y;
 //}
-//void Swape(double& x, double& y)
-//{                                   //åœ¨Cè¯­è¨€ä¸­æˆ‘ä»¬è¦å®ç°ä¸åŒç±»å‹çš„äº¤æ¢å‡½æ•°å¿…é¡»å¾—å†™å‡ºä¸åŒçš„å‡½æ•°
-//	int tmp = x;
-//	x = y;
-//	y = tmp;
-//}
-//void Swape(char& x, char& y)
+//template <typename T>
+//T Add( T x,  T y)
 //{
-//	int tmp = x;
-//	x = y;
-//	y = tmp;
+//	cout << "T Add( T x,  T y)" << endl;
+//	return x + y;
 //}
 //int main()
 //{
+//	Add(1, 2); 
+//	cout << Add(1, 1.2) << endl;
 //	return 0;
 //}
+#include<iostream>
+using namespace std;
+// ÀàÄ£°æ
 template<typename T>
-void Swape(T& x, T& y)
+class Stack
 {
-	T tmp = x;
-	x = y;
-	y = tmp;
+public:
+	Stack(size_t capacity = 4)
+	{
+		_array = new T[capacity];
+		_capacity = capacity;
+		_size = 0;
+	}
+	void Push(const T& data);
+private:
+	T* _array;
+	size_t _capacity;
+	size_t _size;
+};
+// Ä£°æ²»½¨ÒéÉùÃ÷ºÍ¶¨Òå·ÖÀëµ½Á½¸öÎÄ¼ş.h ºÍ.cpp»á³öÏÖÁ´½Ó´íÎó£¬¾ßÌåÔ­ÒòºóÃæ»á½²
+template<class T>
+void Stack<T>::Push(const T& data)
+
+{
+	// À©Èİ
+	_array[_size] = data;
+	++_size;
 }
 int main()
 {
-	int x = 1;
-	int y = 2;
-	double z = 1.1;
-	double d = 3.3;
-	Swape(x, y);
-	Swape(z, d);
-	cout << "x="<<x<<endl<<"y="<<y << endl;
-	cout << "z="<<z<<endl<<"d="<<d << endl;
+	Stack<int> st1; // int
+	Stack<double> st2; // double
 	return 0;
-
 }
+//StackÊÇÀàÃû£¬Satck<int>²ÅÊÇÕæÕıµÄÀàĞÍ
+Stack<int> st1;   //intÀàĞÍ
+Stack<double> st2; //doubleÀàĞÍ
