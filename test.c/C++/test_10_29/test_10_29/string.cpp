@@ -247,19 +247,102 @@ using namespace std;
 //	s1.append(5, 'x'); //插入五个'x'字符
 //	cout << s1 << endl;
 //}
-void test_string13()
+//void test_string13()
+//{
+//	string s1 = "hello";
+//	s1 += "******";   //加一串字符
+//	cout << s1 << endl;
+//	char ch[] = "!!!";
+//	s1 += ch;   //加	C语言风格的字符串
+//	cout << s1 << endl;
+//	s1 += 'w';  //加一个字符
+//	cout << s1 << endl;
+//}
+void test_string14()
 {
 	string s1 = "hello";
-	s1 += "******";   //加一串字符
+	s1.insert(5, " world");  //在下标为5的位置插入字符串
 	cout << s1 << endl;
-	char ch[] = "!!!";
-	s1 += ch;   //加	C语言风格的字符串
+	s1.insert(5, "!!!!!!!", 0, 3);  //在下标为5的位置插入一段内容来自指定字符串，
+	cout << s1 << endl;                              // 字符串长度为从下标为0开始往后三个字符
+	char ch[] = "****";
+	s1.insert(7, string(ch));  //在下标为7的位置插入C语言风格的字符串
 	cout << s1 << endl;
-	s1 += 'w';  //加一个字符
+	s1.insert(0, ch, 2); //在开头插入指定字符串中的内容，大小为从开头取两个
 	cout << s1 << endl;
+	s1.insert(2, 3, '#'); //在下标为2的位置之前插入3个字符
+	cout << s1 << endl;
+
+	auto it = s1.begin() + 5;  //迭代器中的用法，在下标为5的位置插入字符
+		s1.insert(it, '-');
+		cout << s1 << endl;
+
+		string s2 = "&&&&&&&";
+		s2.insert(s2.begin(), s1.begin() + 5,s1.begin()+7);//把 s1 的 [5, 7) 即 "-h" 插到 s2 下标 0前
+		cout << s2 << endl;
+}
+void test_string15()
+{
+	string s1 = "hello";
+	string s2 = "hello";
+	string s3 = "hello";
+	s1.erase(0, 4);  //清楚从下标为0的位置开始到下标为4的位置的字符
+	cout << s1 << endl;
+	auto it = s2.begin()+1;  //迭代器，删掉下标为1的字符
+	s2.erase(it);
+	cout << s2 << endl;
+
+	s3.erase(s3.begin(), s3.end()-1);  //删除最后一个字符之前的所有字符
+	cout << s3<<endl;
+}
+void test_string16()
+{
+	string s1 = "hello";
+	s1.replace(1, 3, "!!!");  //从下标为1的字符开始替代三个字符为指定字符，当然这种同个数替换对于效率是没有影响的
+	cout << s1 << endl;
+	s1.replace(0, 5, "88");//如果是不同个数替换其实很费空间
+	cout << s1 << endl;
+	string s2 = "I like apples";
+	string s3 = "oranges and bananas";
+	s2.replace(7, 6, s3, 0, 7);  //将s2中从下标为7开始的六个字符替换为s3中下标为0开始的7个字符
+	cout << s2<< endl;
+	s2.replace(7, 7, "C++");  //s2从下标为7开始的七个字符替换为C++
+	cout << s2 << endl;
+	s3.replace(0, 7, "apples", 6);  //s3从下标为0的字符开始的七个字符替换为指定字符串中的六个字符
+	cout << s3 << endl;
+	s3.replace(0, 7, 7, '*');  //s3从下标为0的字符开始的七个字符替换为7个指定字符
+	cout << s3 << endl;
+}
+void test_string17()
+{
+	string s1 = "hello";
+	string s2 = "world";
+	s1.swap(s2);  //交换字符s1和s2
+	cout << s1 << endl;
+	cout << s2 << endl;
+}
+void test_string18()
+{
+	string s1 = "hello";
+	s1.pop_back();     //删掉最后一个字符
+	cout << s1 << endl;
+}
+
+void test_string19()
+{
+	string s1 = "hello";
+	string s2;
+	s1.reserve(100);   //预留了100个空间，当然实际预留的空间可能会略大一点
+	
+	s2.resize(50,'*');  //预留了50个空间，用指定字符初始化
+	cout << s2 << endl;
+	s2.resize(10);     //指定只保留十个空间的话，就会把多余的删除
+	cout << s2 << endl;
+	s2.resize(15);
+	cout << s2 << endl;
 }
 int main()
 {
-	test_string13();
+	test_string19();
 	return 0;
 }
