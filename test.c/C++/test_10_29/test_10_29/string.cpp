@@ -258,91 +258,207 @@ using namespace std;
 //	s1 += 'w';  //加一个字符
 //	cout << s1 << endl;
 //}
-void test_string14()
+//void test_string14()
+//{
+//	string s1 = "hello";
+//	s1.insert(5, " world");  //在下标为5的位置插入字符串
+//	cout << s1 << endl;
+//	s1.insert(5, "!!!!!!!", 0, 3);  //在下标为5的位置插入一段内容来自指定字符串，
+//	cout << s1 << endl;                              // 字符串长度为从下标为0开始往后三个字符
+//	char ch[] = "****";
+//	s1.insert(7, string(ch));  //在下标为7的位置插入C语言风格的字符串
+//	cout << s1 << endl;
+//	s1.insert(0, ch, 2); //在开头插入指定字符串中的内容，大小为从开头取两个
+//	cout << s1 << endl;
+//	s1.insert(2, 3, '#'); //在下标为2的位置之前插入3个字符
+//	cout << s1 << endl;
+//
+//	auto it = s1.begin() + 5;  //迭代器中的用法，在下标为5的位置插入字符
+//		s1.insert(it, '-');
+//		cout << s1 << endl;
+//
+//		string s2 = "&&&&&&&";
+//		s2.insert(s2.begin(), s1.begin() + 5,s1.begin()+7);//把 s1 的 [5, 7) 即 "-h" 插到 s2 下标 0前
+//		cout << s2 << endl;
+//}
+//void test_string15()
+//{
+//	string s1 = "hello";
+//	string s2 = "hello";
+//	string s3 = "hello";
+//	s1.erase(0, 4);  //清楚从下标为0的位置开始到下标为4的位置的字符
+//	cout << s1 << endl;
+//	auto it = s2.begin()+1;  //迭代器，删掉下标为1的字符
+//	s2.erase(it);
+//	cout << s2 << endl;
+//
+//	s3.erase(s3.begin(), s3.end()-1);  //删除最后一个字符之前的所有字符
+//	cout << s3<<endl;
+//}
+//void test_string16()
+//{
+//	string s1 = "hello";
+//	s1.replace(1, 3, "!!!");  //从下标为1的字符开始替代三个字符为指定字符，当然这种同个数替换对于效率是没有影响的
+//	cout << s1 << endl;
+//	s1.replace(0, 5, "88");//如果是不同个数替换其实很费空间
+//	cout << s1 << endl;
+//	string s2 = "I like apples";
+//	string s3 = "oranges and bananas";
+//	s2.replace(7, 6, s3, 0, 7);  //将s2中从下标为7开始的六个字符替换为s3中下标为0开始的7个字符
+//	cout << s2<< endl;
+//	s2.replace(7, 7, "C++");  //s2从下标为7开始的七个字符替换为C++
+//	cout << s2 << endl;
+//	s3.replace(0, 7, "apples", 6);  //s3从下标为0的字符开始的七个字符替换为指定字符串中的六个字符
+//	cout << s3 << endl;
+//	s3.replace(0, 7, 7, '*');  //s3从下标为0的字符开始的七个字符替换为7个指定字符
+//	cout << s3 << endl;
+//}
+//void test_string17()
+//{
+//	string s1 = "hello";
+//	string s2 = "world";
+//	s1.swap(s2);  //交换字符s1和s2
+//	cout << s1 << endl;
+//	cout << s2 << endl;
+//}
+//void test_string18()
+//{
+//	string s1 = "hello";
+//	s1.pop_back();     //删掉最后一个字符
+//	cout << s1 << endl;
+//}
+//
+//void test_string19()
+//{
+//	string s1 = "hello";
+//	string s2;
+//	s1.reserve(100);   //预留了100个空间，当然实际预留的空间可能会略大一点
+//	
+//	s2.resize(50,'*');  //预留了50个空间，用指定字符初始化
+//	cout << s2 << endl;
+//	s2.resize(10);     //指定只保留十个空间的话，就会把多余的删除
+//	cout << s2 << endl;
+//	s2.resize(15);
+//	cout << s2 << endl;
+//}
+//class Solution {
+//public:
+//	bool IsLetter(char ch)
+//	{
+//		if (ch <= 'Z' && ch >= 'A' || ch >= '1' && ch <= '9' || ch <= 'z' && ch >= 'a')
+//			return true;
+//		return false;
+//	}
+//	bool isPalindrome(string s) {
+//		for (auto& it : s)
+//		{
+//			if (it <= 'z' && it >= 'a')
+//			{
+//				it = it - 32;
+//			}
+//		}
+//		int left = 0;
+//		int right = s.size() - 1;
+//		while (left < right)
+//		{
+//			while (left < right && !IsLetter(s[left]))
+//			{
+//				left++;
+//			}
+//			while (left < right && !IsLetter(s[right]))
+//			{
+//				right--;
+//			}
+//			if (s[left]== s[right])
+//			{
+//				++left;
+//				--right;
+//			}
+//			else
+//				return false;
+//		}
+//		return true;
+//	}
+//};
+//int main() {
+//	// 实例化 Solution 对象
+//	Solution sol;
+//
+//	// 准备测试用例，你可以在这里换成其他字符串测试
+//	string s1 = "OP";
+//	// string s1 = "A man, a plan, a canal: Panama"; 
+//
+//	// 调用对象的方法
+//	bool result = sol.isPalindrome(s1);
+//
+//	// 输出结果
+//	cout << "The string is: " << s1 << endl;
+//	cout << "Is palindrome? " << (result ? "Yes" : "No") << endl;
+//
+//	return 0;
+//}
+//class Solution {
+//public:
+//    string addStrings(string num1, string num2) {
+//        int end1 = num1.size() - 1;
+//        int end2 = num2.size() - 1;
+//
+//    }
+//};
+void string_test20()
 {
-	string s1 = "hello";
-	s1.insert(5, " world");  //在下标为5的位置插入字符串
-	cout << s1 << endl;
-	s1.insert(5, "!!!!!!!", 0, 3);  //在下标为5的位置插入一段内容来自指定字符串，
-	cout << s1 << endl;                              // 字符串长度为从下标为0开始往后三个字符
-	char ch[] = "****";
-	s1.insert(7, string(ch));  //在下标为7的位置插入C语言风格的字符串
-	cout << s1 << endl;
-	s1.insert(0, ch, 2); //在开头插入指定字符串中的内容，大小为从开头取两个
-	cout << s1 << endl;
-	s1.insert(2, 3, '#'); //在下标为2的位置之前插入3个字符
-	cout << s1 << endl;
+	string filename("string.cpp");   //比如要调用C语言读文件的接口就需要用到c_str来转换一下
+	FILE* fout = fopen(filename.c_str(), "r");
+	char ch = fgetc(fout);
+	while (ch != EOF) {
+		cout << ch;
+		ch = fgetc(fout);
+	}
+}
+ void split(const string& url)
+{
+	 size_t i1 = url.find(':');  //比如这里i1就是就是':'位置的下标
+	 string protocol = url.substr(0, i1);  //截取从下标为0到i的字符串
+	 size_t i2 = url.find('/', i1 + 3);
+	 string domain = url.substr(i1 + 3, i2 - (i1 + 3));  //截取第二段
+	 string uri = url.substr(i2 + 1);   //截取第三段
+	 cout << protocol << endl;
+	 cout << domain << endl;
+	 cout << uri << endl;
+}
+ void split2(const string&url)
+ {
+	 size_t i1 = url.rfind('.');
+	 string uri = url.substr(i1);
+	 cout << uri << endl;
+ }
+ void test_string22()
+ {
+	 string s1 = "stringaaa";
+	 string s2 = "aaaaa";
+	 const char* p1 = "bb";
+	 cout << (s1 > s2) << endl;
+	 cout << (s1 < s2) << endl;
+	 cout << (p1 > s2) << endl;
+ }
+ void test_string23()
+ {
+	 string s1 = "stringaaa";
+	 string s2 = "aaaaa";
+	 s1.swap(s2);
+	 cout << s1 << endl;
 
-	auto it = s1.begin() + 5;  //迭代器中的用法，在下标为5的位置插入字符
-		s1.insert(it, '-');
-		cout << s1 << endl;
 
-		string s2 = "&&&&&&&";
-		s2.insert(s2.begin(), s1.begin() + 5,s1.begin()+7);//把 s1 的 [5, 7) 即 "-h" 插到 s2 下标 0前
-		cout << s2 << endl;
-}
-void test_string15()
-{
-	string s1 = "hello";
-	string s2 = "hello";
-	string s3 = "hello";
-	s1.erase(0, 4);  //清楚从下标为0的位置开始到下标为4的位置的字符
-	cout << s1 << endl;
-	auto it = s2.begin()+1;  //迭代器，删掉下标为1的字符
-	s2.erase(it);
-	cout << s2 << endl;
-
-	s3.erase(s3.begin(), s3.end()-1);  //删除最后一个字符之前的所有字符
-	cout << s3<<endl;
-}
-void test_string16()
-{
-	string s1 = "hello";
-	s1.replace(1, 3, "!!!");  //从下标为1的字符开始替代三个字符为指定字符，当然这种同个数替换对于效率是没有影响的
-	cout << s1 << endl;
-	s1.replace(0, 5, "88");//如果是不同个数替换其实很费空间
-	cout << s1 << endl;
-	string s2 = "I like apples";
-	string s3 = "oranges and bananas";
-	s2.replace(7, 6, s3, 0, 7);  //将s2中从下标为7开始的六个字符替换为s3中下标为0开始的7个字符
-	cout << s2<< endl;
-	s2.replace(7, 7, "C++");  //s2从下标为7开始的七个字符替换为C++
-	cout << s2 << endl;
-	s3.replace(0, 7, "apples", 6);  //s3从下标为0的字符开始的七个字符替换为指定字符串中的六个字符
-	cout << s3 << endl;
-	s3.replace(0, 7, 7, '*');  //s3从下标为0的字符开始的七个字符替换为7个指定字符
-	cout << s3 << endl;
-}
-void test_string17()
-{
-	string s1 = "hello";
-	string s2 = "world";
-	s1.swap(s2);  //交换字符s1和s2
-	cout << s1 << endl;
-	cout << s2 << endl;
-}
-void test_string18()
-{
-	string s1 = "hello";
-	s1.pop_back();     //删掉最后一个字符
-	cout << s1 << endl;
-}
-
-void test_string19()
-{
-	string s1 = "hello";
-	string s2;
-	s1.reserve(100);   //预留了100个空间，当然实际预留的空间可能会略大一点
-	
-	s2.resize(50,'*');  //预留了50个空间，用指定字符初始化
-	cout << s2 << endl;
-	s2.resize(10);     //指定只保留十个空间的话，就会把多余的删除
-	cout << s2 << endl;
-	s2.resize(15);
-	cout << s2 << endl;
-}
+ }
 int main()
 {
-	test_string19();
+	/*int n = 7;
+	n = n % 10;
+	cout << n << endl;*/
+	//string url1("legacy.cplusplus.com");
+	//string url2("https://www.baidu.com/s?wd=%E7%BB%BF%E6%B0%B4%E9%9D%92%E5%B1%B1%E5%86%B0%E5%A4%A9%E9%9B%AA%E5%9C%B0%E9%83%BD%E6%98%AF%E9%87%91%E5%B1%B1%E9%93%B6%E5%B1%B1&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1");
+	//split2(url1);
+	////split(url2);
+	test_string23();
 	return 0;
 }
