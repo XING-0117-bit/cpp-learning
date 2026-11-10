@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<list>
+#include<string>
 using namespace std;
 //void test_string1()
 //{
@@ -450,6 +451,26 @@ void string_test20()
 
 
  }
+ void test_string24()
+ {
+	 string name;
+	 //cout << "Please, enter your name:" << endl;//operator<<:输出字符串
+	 cin >> name;     //operator>>:输入字符串
+	 cout <<   name << endl;
+ }
+ void test_string25()
+ {
+	 string s1, s2;
+	 cin >> s1;
+	 cin >> s2;
+	 cout << s1 << " " << s2 << endl;
+ }
+ void test_string26()
+ {
+	 string s1;
+	 getline(cin, s1);
+	 cout << s1 << endl;
+ }
 int main()
 {
 	/*int n = 7;
@@ -459,6 +480,6 @@ int main()
 	//string url2("https://www.baidu.com/s?wd=%E7%BB%BF%E6%B0%B4%E9%9D%92%E5%B1%B1%E5%86%B0%E5%A4%A9%E9%9B%AA%E5%9C%B0%E9%83%BD%E6%98%AF%E9%87%91%E5%B1%B1%E9%93%B6%E5%B1%B1&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1");
 	//split2(url1);
 	////split(url2);
-	test_string23();
+	test_string26();
 	return 0;
 }
