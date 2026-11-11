@@ -11,6 +11,7 @@ namespace mystd
 	public:
 		string();
 		string(const char* str);
+		string(const string& s);   // 新增：拷贝构造（深拷贝），operator+ 里拷贝 *this 时必须用到
 		~string();
 		const char* c_str()
 		{
@@ -33,7 +34,13 @@ namespace mystd
 			return _str+_size;
 		}
 		void append(const char*str);
+		void push_back(const char ch);
 		void resever(size_t n);
+		void operator+=(const char* str);
+		void operator+=(const char ch);
+		string& operator+=(const string str);
+		string operator+(const string& rhs);   // 修改：+ 必须传值返回新对象，返回局部对象的引用会悬空
+		string operator+(const char* str);
 	private:
 		char* _str;
 		size_t _size;
