@@ -1,6 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 using namespace std;
+//#include<stdio.h>
+//#include<string.h>
+//#include<stdlib.h>
 namespace mystd
 {
 	typedef  char* iterator;
@@ -41,9 +44,17 @@ namespace mystd
 		string& operator+=(const string str);
 		string operator+(const string& rhs);   // 修改：+ 必须传值返回新对象，返回局部对象的引用会悬空
 		string operator+(const char* str);
+		void insert(size_t pos,const char ch);
+		void insert(size_t pos, const char* str);
+		static const size_t npos = -1;
+		void erase(size_t pos = 0, size_t len=string::npos);
+		size_t find(const char ch, size_t pos=0);  
+		size_t find(const char*str, size_t pos=0,size_t len=string:: npos); 
+		string substr(size_t pos = 0, size_t len = string::npos);
 	private:
 		char* _str;
 		size_t _size;
 		size_t _capacity;
 	};
+	
 }

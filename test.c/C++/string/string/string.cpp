@@ -94,5 +94,105 @@ namespace mystd
 		tmp += str;
 		return tmp;
 	}
+	void string::insert(size_t pos,const char ch)  //插入一个字符
+	{
+		size_t len = _size + 1;
+		if (len > _capacity)   //预留空间
+		{
+			resever(_capacity==0?4:_capacity*2);
+		}
+		int end = _size;
+		while (end >=(int)pos)   //必须要强转 否则无符号是没有负值的，导致无限循环
+		{
+			_str[end+1] = _str[end];
+			end--;
+		}
+		_str[pos] = ch;
+		_size++;
+	}
+	void string::insert(size_t pos, const char* str)  //插入字符串
+	{
+		size_t len = strlen(str);
+		if (len+_size > _capacity)
+		{
+			resever(_size+len+1);
+		}
+		int end = _size+len;
+		while (end >(int)pos + len - 1)     //条件改变 防止越界访问
+		{
+			_str[end] = _str[end - len];
+			end--;
+		}
+		for (size_t i = 0; i < len; i++)
+		{
+			_str[pos + i] = str[i];
+		}
+		_size += len;
+
+	}
+	  
+	void string::erase(size_t pos , size_t len)
+	{
+		if (len==string::npos||len > _size-pos)  //pos后面的全部删除
+		{
+			_str[pos] = '\0';
+			_size = pos;
+		}
+		else
+		{
+			int count = _size - len - pos;  //计数
+			for (size_t i = 0; i <count ; i++)
+			{
+				_str[pos] = _str[pos + len];
+				pos++;
+			}
+			_str[pos] = _str[_size];  
+			_size -= len;
+		}
+
+	}
+	size_t string::find(const char ch, size_t pos) 
+	{
+		if (pos < _size)
+		{
+			for (size_t i = pos; i < _size; i++)
+			{
+				if (_str[i] == ch)
+				{
+					return i;
+				}
+			}
+		}
+		return npos;
+	}
+	size_t string::find(const char* str, size_t pos, size_t len) 
+	{
+		    char*p=strstr(_str+pos, str);
+			if (p == nullptr)
+
+			{
+				return npos;
+			}
+
+		return p-_str;
+	}
+	string string::substr(size_t pos, size_t len )
+	{
+		if (len == string::npos || len < _size - pos)
+		{
+			len = _size - pos;
+		}
+		string sub;
+		resever(len);
+		for (size_t i = 0; i < len; i++)
+		{
+			sub += _str[pos+i];
+		}
+		return sub;
+
+	}
+
+
 }
+
  
