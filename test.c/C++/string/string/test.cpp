@@ -34,6 +34,13 @@ void test()
 	/*cout << s5.c_str()<< endl;
 	cout << s6.c_str()<< endl;*/
 }
+void test2()
+{
+	mystd::string s1;
+	//cin >> s1;
+	getline(cin,s1,'*');
+	cout << s1 << endl;
+}
 int main()
 {
 	//////std::string s1;
@@ -71,6 +78,6 @@ int main()
 	//		cout << ch << "*";
 	//		
 	//	}
-	test();
+	test2();
 		
 }
