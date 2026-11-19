@@ -2,18 +2,42 @@
 #include<vector>
 #include<iostream>
 using namespace std;
+vector<vector<int>> generate(int numRows)
+{
+	vector<vector<int>> vv(numRows);
+	for (size_t i = 0; i < numRows; i++)
+	{
+		vv[i].resize(i + 1, 1);
+	}
+	for (size_t i = 2; i < vv.size(); i++)
+	{
+		for (size_t j = 1; j < vv[i].size()-1; j++)
+		{
+			vv[i][j] = vv[i - 1][j] + vv[i - 1][j - 1];
+		}
+	}
+	for (size_t i = 0; i < vv.size(); i++)
+	{
+		for (size_t j = 0; j < vv[i].size(); j++)
+		{
+			cout << vv[i][j];
+		}
+		cout << endl;
+	}
+	return vv;
+}
 int main()
 {
 	// vector<int> v1;：默认构造一个空的 int 向量，元素个数为 0。
 	// vector<int> v1(10, 1);：构造 10 个元素，每个元素都是 1。
 	// 注意括号版本是“个数 + 初始值”；若写成 {10, 1}，则表示两个元素 10 和 1。
-	vector<int>v1(10, 1);
+	//vector<int>v1(10, 1);
 
 	// 拷贝构造：v2 是 v1 的副本，初始也有 10 个 1，但后续修改互不影响。
-	vector<int>v2(v1);
+	//vector<int>v2(v1);
 
 	// 默认构造一个空的 char 向量，当前元素个数为 0。
-	vector<char>v3;
+	//vector<char>v3;
 
 	// size() 返回元素个数，类型是 size_t（无符号整数），所以循环变量也用 size_t。
 	// i < v1.size() 保证只访问有效下标 0 ~ size()-1。
@@ -94,40 +118,43 @@ int main()
 
 
 	
-	vector<vector<int>>vv(3);
-	
-	for (auto&v : vv)
-	{                        
-		v.resize(5,1);
+	//vector<vector<int>>vv(3);
+	//
+	//for (auto&v : vv)
+	//{
+	//	v.resize(5,1);
 
-	}
-	for (size_t i = 0; i < 3; i++)   //打印格式规律的vector
-	{
-		for (size_t j = 0; j < 5; j++)
-		{
-			cout << vv[i][j] ;
-		}
-		cout << endl;
-	}
-	cout << endl;
-
-
+	//}
+	//for (size_t i = 0; i < 3; i++)   //打印格式规律的vector
+	//{
+	//	for (size_t j = 0; j < 5; j++)
+	//	{
+	//		cout << vv[i][j] ;
+	//	}
+	//	cout << endl;
+	//}
+	//cout << endl;
 
 
 
-	vector<vector<int>>vv2(3);
-	for (auto& v2 : vv2)
-	{
-		vv2[0].resize(5, 1);
-		vv2[1].resize(3, 2);
-		vv2[2].resize(4, 6);
-	}
-	for (size_t i = 0; i < vv2.size(); i++)  //不规律分布vector打印
-	{
-		for (size_t j = 0; j < vv2[i].size(); j++)
-		{
-			cout << vv2[i][j];
-		}
-		cout << endl;
-	}
+
+
+	//vector<vector<int>>vv2(3);
+	//for (auto& v2 : vv2)
+	//{
+	//	vv2[0].resize(5, 1);
+	//	vv2[1].resize(3, 2);
+	//	vv2[2].resize(4, 6);
+	//}
+	//for (size_t i = 0; i < vv2.size(); i++)  //不规律分布vector打印
+	//{
+	//	for (size_t j = 0; j < vv2[i].size(); j++)
+	//	{
+	//		cout << vv2[i][j];
+	//	}
+	//	cout << endl;
+	//}
+
+vector<vector<int>>v= generate(3);
+return 0;
 }
