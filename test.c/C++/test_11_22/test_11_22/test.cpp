@@ -86,18 +86,30 @@ void test_vector4()
 	mystd::vector<int> v1; //初始化的时候<>中必须要加上类型
 	v1.push_back(1);
 	v1.push_back(2);
-	v1.push_back(3);
+	//v1.push_back(3);
 	v1.push_back(4);
 	v1.push_back(5);
 	v1.push_back(6);
 	v1.push_back(7);
 
-	v1.erase(v1.begin()+3);
+	//v1.erase(v1.begin()+3);
 	mystd::vector<int>::iterator it = v1.begin();
 	while (it != v1.end())
 	{
-		cout << *it << " ";
+		if (*it % 2 == 0)
+		{
+			v1.erase(it);
+			
+		}
+		else
 		it++;
+	}
+	cout << endl;
+	mystd::vector<int>::iterator it1 = v1.begin();
+	while (it1 != v1.end())
+	{
+		cout << *it1 << " ";
+		it1++;
 	}
 	cout << endl;
 }

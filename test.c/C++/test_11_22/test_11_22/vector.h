@@ -55,7 +55,7 @@ namespace mystd
 			{
 				return _finish == _start;
 			}
-			void erase(iterator pos);
+			iterator erase(iterator pos);
 		private:
 			iterator _start;
 			iterator _finish;
@@ -96,7 +96,7 @@ namespace mystd
 		_finish--;
 	}
 	template<class T>
-	void vector<T>::erase(iterator pos)
+	typename vector<T>::iterator vector<T>::erase(iterator pos)
 	{
 		assert(pos >= _start);
 		assert(pos <= _finish);
@@ -109,6 +109,7 @@ namespace mystd
 			
 		}
 		_finish--;
+		return pos;
 	}
 	
 	
