@@ -44,6 +44,7 @@ namespace mystd
 		}
 		void insert(iterator pos, const T& val);
 		iterator erase(iterator pos);
+		void resize(size_t n, const T& val);
 	private:
 		iterator _start;
 		iterator _finish;
@@ -106,12 +107,24 @@ namespace mystd
 		assert(pos >= _start);
 		assert(pos < _finish);
 		iterator it = pos;
-		while (pos < _finish)
+		while (pos + 1 < _finish)
 		{
 			*pos = *(pos + 1);//现在这种情况下pos确实是不失效的
 			pos++;
 		}
 		_finish--;
 		return it;
+	}
+	template<class T>
+	void vector<T>::resize(size_t n, const T& val)
+	{
+		while (size() < n)
+		{
+			push_back(val);
+		}
+		while (size() > n)
+		{
+			_finish--;
+		}
 	}
 }

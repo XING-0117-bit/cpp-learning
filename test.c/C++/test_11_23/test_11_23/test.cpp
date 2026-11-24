@@ -117,8 +117,99 @@ void vector_test6()
 	cout << endl;
 	
 }
+
+//void vector_test7()
+//{
+//	mystd::vector<int> v1;
+//	v1.push_back(1);
+//	v1.push_back(2);
+//	v1.push_back(3);
+//	v1.push_back(4);
+//	v1.push_back(5);
+//	v1.push_back(6);
+//	v1.push_back(7);
+//	v1.push_back(8);
+//	v1.print();
+//}
+//template<class T>
+//void print(const T& v)
+//{
+//	for (auto ch : v)
+//	{
+//		cout << ch;
+//	}
+//	cout << endl;
+//}
+template <class T>  //第一种
+void print(const mystd::vector<T>& v)
+{
+	typename mystd::vector<T>::iterator it = v.begin();
+	while (it!= v.end())
+	{
+		cout << *it << " ";
+		it++;
+	}
+	cout << endl;
+}
+template <class Container>   //第二种
+void print(const Container& v)
+{
+    typename Container::const_iterator it = v.begin();
+	while (it != v.end())
+	{
+		cout << *it << " ";
+		it++;
+	}
+	cout << endl;
+}
+//void vector_test7()
+//{
+//	mystd::vector<int> v1;
+//	v1.push_back(1);
+//	v1.push_back(2);
+//	v1.push_back(3);
+//	v1.push_back(4);
+//	v1.push_back(5);
+//	v1.push_back(6);
+//	v1.push_back(7);
+//	v1.push_back(8);
+//	print(v1);
+//}
+void vector_test8()
+{
+	mystd::vector<int> v1;
+	v1.push_back(1);
+		v1.push_back(2);
+		v1.push_back(3);
+		v1.push_back(4);
+		v1.push_back(5);
+		v1.push_back(6);
+		v1.push_back(7);
+		v1.push_back(8);
+	/*string s1("Hello");
+	print(s1);
+
+	print(v1);*/
+	//v1. resize(6, 1);
+	v1. resize(9, 1);
+	print(v1);
+
+}
+
 int main()
 {
-	vector_test6();
+	///*vector_test7();*/
+	//mystd::vector<int> v1;
+	//	v1.push_back(1);
+	//	v1.push_back(2);
+	//	v1.push_back(3);
+	//	v1.push_back(4);
+	//	v1.push_back(5);
+	//	v1.push_back(6);
+	//	v1.push_back(7);
+	//	v1.push_back(8);
+	//	print(v1);
+	vector_test8();
+
 	return 0;
 }
