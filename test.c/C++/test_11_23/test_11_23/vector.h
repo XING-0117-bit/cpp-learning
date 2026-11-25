@@ -1,6 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<assert.h>
 #include<string.h>
+#include<iostream>
+using namespace std;
 namespace mystd
 {
 	template<class T>
@@ -15,6 +17,49 @@ namespace mystd
 			_end_of_shorage(nullptr)
 		{
 
+		}
+		/*vector(size_t n, const T& val)
+		{
+			reserve(n);
+			for (size_t i = 0; i < n; i++)
+			{
+				*_finish = val;
+				_finish++;
+			}
+		}*/
+		template <class InputIterator>
+		vector(InputIterator first, InputIterator last)
+		{
+			while (first != last)
+			{
+				push_back(*first);
+				first++;
+			}
+		}
+		vector(initializer_list<T> il)
+		{
+			reserve(il.size());
+			for (auto& e : il)
+			{
+				push_back(e);
+			}
+		}
+		void swap(vector<T>&v)
+		{
+			std::swap(_start, v._start);
+			std::swap(_finish, v._finish);
+			std::swap(_end_of_shorage, v._end_of_shorage);
+		}
+		vector(const vector<T>& v)   //深拷贝
+		{
+			vector tmp(v._start,v. _finish);
+			swap(tmp);
+		}
+		vector<T>& operator==(const vector<T> v) //赋值
+		{
+			vector tmp(v);
+			swap(tmp);
+			return *this;
 		}
 		void push_back(const T& val);
 		iterator begin()const
@@ -44,12 +89,32 @@ namespace mystd
 		}
 		void insert(iterator pos, const T& val);
 		iterator erase(iterator pos);
-		void resize(size_t n, const T& val);
+		void resize(size_t n, const T& val=T());  //用匿名对象
+		void reserve(size_t n);
+		
 	private:
 		iterator _start;
 		iterator _finish;
 		iterator _end_of_shorage;
 	};
+	
+	template<class T>
+	void vector<T>::reserve(size_t n)
+	{
+		if (n > capacity())
+		{
+			size_t old_size = size();
+			T* tmp = new T[n];
+			if (_start)
+			{
+				memcpy(tmp, _start, old_size * sizeof(T));
+				delete[]_start;
+			}
+			_start = tmp;
+			_finish = tmp + old_size;
+			_end_of_shorage = tmp + n;
+		}
+	}
 	template<class T>
 	void vector<T>::push_back(const T& val)
 	{
@@ -58,7 +123,10 @@ namespace mystd
 			size_t old_size = size();
 			size_t Newcapacity = capacity() == 0 ? 4 : capacity() * 2;//扩容
 			T* tmp = new T[Newcapacity];
-			memcpy(tmp, _start, sizeof(T) * size()); //将旧空间拷贝到新空间中
+			for (size_t i = 0; i < size(); i++)  //代替memcpy
+			{
+				tmp[i] = _start[i];
+			}
 			delete[]_start;      //删除旧空间
 			_start = tmp;
 			_finish = tmp + old_size;
@@ -127,4 +195,6 @@ namespace mystd
 			_finish--;
 		}
 	}
+	
+	
 }

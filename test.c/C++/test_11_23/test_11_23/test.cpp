@@ -191,11 +191,38 @@ void vector_test8()
 
 	print(v1);*/
 	//v1. resize(6, 1);
-	v1. resize(9, 1);
+	v1. resize(9);
 	print(v1);
 
 }
-
+void vector_test9()
+{
+	/*mystd::vector<int> v1(10,1);
+	print(v1);*/
+	mystd::vector<int> v2 = { 1,2,3,4,5,6 };
+	mystd::vector<int> v3(v2.begin(), v2.end());
+	/*print(v2);
+	print(v3);*/
+	mystd::vector<int>v4(v3);
+	print(v4);
+	mystd::vector<int>v6;
+	v6 == v3;
+	print(v6);
+}
+void vector_test10()
+{
+	mystd::vector<string> v1;  //string会出现问题
+	v1.push_back("1111111111111111");
+	v1.push_back("1111111111111111");
+	v1.push_back("11111111111111");
+	v1.push_back("1111111111111111");
+	v1.push_back("111111111111111");
+	v1.push_back("111111111111111");
+	v1.push_back("111111111111111");
+	v1.push_back("111111111111111");
+	print(v1);
+	
+}
 int main()
 {
 	///*vector_test7();*/
@@ -209,7 +236,7 @@ int main()
 	//	v1.push_back(7);
 	//	v1.push_back(8);
 	//	print(v1);
-	vector_test8();
+	vector_test10();
 
 	return 0;
 }
